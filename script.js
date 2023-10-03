@@ -1,7 +1,6 @@
 "use strict";
 const secNum = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
-// document.querySelector(".number").textContent = secNum;
 
 document.querySelector(".check").addEventListener("click", function () {
   const guess = Number(document.querySelector(".guess").value);
@@ -13,15 +12,15 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".message").textContent = "Correct Number";
     document.querySelector("body").style.backgroundColor = "#999033";
     document.querySelector(".number").style.width = "30rem";
-    document.querySelector(".number").style.color = "#009900";
+    document.querySelector(".number").style.color = "#00ffff";
+    document.querySelector(".number").textContent = secNum;
   } else if (guess > secNum) {
     if (score > 1) {
       document.querySelector(".message").textContent = "Too High";
       score--;
       document.querySelector(".score").textContent = score;
     } else {
-      document.querySelector(".message").textContent =
-        "Tum har gaye hum jeety, hum jeety or tum hary ";
+      document.querySelector(".message").textContent = "YOu Lost......";
     }
   } else if (guess < secNum) {
     if (score > 0) {
@@ -29,11 +28,19 @@ document.querySelector(".check").addEventListener("click", function () {
       score--;
       document.querySelector(".score").textContent = score;
     } else {
-      document.querySelector(".message").textContent =
-        "Tum har gaye hum jeety, hum jeety or tum hary ";
+      document.querySelector(".message").textContent = "You Lost";
     }
   }
-  //    else {
-  //     document.querySelector(".message").textContent = "⛔ No Numberz";
-  //   }
+});
+
+document.querySelector(".again").addEventListener("click", function () {
+  // score = 20;
+  document.querySelector(".score").textContent = "20";
+  document.querySelector(".guess").value = "";
+  document.querySelector(".number").style.width = "15rem";
+  document.querySelector(".message").textContent = "Start guessing...";
+  document.querySelector(".number").textContent = "?";
+  document.querySelector(".number").style.color = "#333";
+  document.querySelector("body").style.backgroundColor = "#222";
+  // document.querySelector(".again").textContent = "Too Low";
 });
